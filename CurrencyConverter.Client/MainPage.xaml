@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CurrencyConverter.Client.ViewModels"
+             x:DataType="viewModels:MainViewModel"
+             x:Class="CurrencyConverter.Client.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="splash.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Label
+                Text="Currency to Text Converter"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="{Binding CurrencyText}"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+            <Entry 
+                x:Name="numberInput" Text="{Binding CurrencyToConvert}"
+                Placeholder="Insert amount to convert to text. Ex (3.14)">
+            </Entry>
+
+
+            <Button
+                x:Name="ConvertButton"
+                Text="Convert To Text" 
+                SemanticProperties.Hint="Converts the currency into it's text"
+                HorizontalOptions="Fill" 
+                Command="{Binding ConvertCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
